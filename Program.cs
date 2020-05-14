@@ -15,6 +15,18 @@ namespace console_library
 
       //   section below = usable b/c of constructor
       Book whereTheSidewalkEnds = new Book("Where the Sidewalk Ends", "Shel Silverstein");
+      Book soulOfAnOctopus = new Book("The Soul of an Octopus", "Sy Montgomery");
+      Book attached = new Book("Attached", "Amir Levine");
+
+
+      Library myLibrary = new Library("myLibrary", "Boise")
+      { };
+
+      myLibrary.AddBook(attached);
+      myLibrary.AddBook(whereTheSidewalkEnds);
+      myLibrary.AddBook(soulOfAnOctopus);
+
+      myLibrary.PrintBooks();
 
     }
   }
