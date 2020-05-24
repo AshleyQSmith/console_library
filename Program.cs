@@ -20,14 +20,22 @@ namespace console_library
 
 
       Library myLibrary = new Library("myLibrary", "Boise")
-      { };
+      {
+
+      };
 
       myLibrary.AddBook(attached);
       myLibrary.AddBook(whereTheSidewalkEnds);
       myLibrary.AddBook(soulOfAnOctopus);
 
+      System.Console.WriteLine($"Welcome to {myLibrary.Name}! Availabe Books:");
+
       myLibrary.PrintBooks();
 
+      System.Console.WriteLine("Select a book number to checkout (Q)uit, or (R)eturn a book");
+
+      string selection = Console.ReadLine();
+      myLibrary.Checkout(selection);
     }
   }
 }

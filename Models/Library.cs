@@ -20,6 +20,29 @@ namespace console_library.Models
       Books.Add(book);
     }
 
+    private Book ValidateBook(string selection, List<Book> bookList)
+    {
+      int bookIndex = 0;
+      bool valid = Int32.TryParse(selection, out bookIndex);
+      if (!valid || bookIndex < 1 || bookIndex > bookList.Count)
+      {
+        return null;
+      }
+      return bookList[bookIndex - 1];
+    }
+
+    public void Checkout(string selection)
+    {
+      Book selectedBook = ValidateUserSelection(selection, AvailableBooks);
+
+      if (selectedBook == null)
+      {
+        Console.Clear();
+        System.Console.WriteLine(@"Invalid Selection");
+        return;
+      }
+    }
+
     // constructor:
     public Library(string name, string location)
     {
